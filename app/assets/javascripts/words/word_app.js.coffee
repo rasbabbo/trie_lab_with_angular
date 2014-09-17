@@ -1,1 +1,5 @@
-word_app.js.coffee
+angular.module("WordApp", [
+	"WordRouter",
+	"WordCtrls",
+	"WordFactories"
+	])
