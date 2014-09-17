@@ -3,7 +3,7 @@ WordRouter = angular.module("WordRouter", ["ngRoute"])
 class Router
 
 	constructor: (@routeProvider, @locationProvider)->
-		console.log("inited router")
+		console.log("Initialized Router")
 		console.log("Setting Up")
 		@routeProvider.
 			when "/",

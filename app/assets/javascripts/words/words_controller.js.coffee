@@ -1,4 +1,4 @@
-WordCtrls = angular.module("WordsCtrls", [])
+WordCtrls = angular.module("WordCtrls", [])
 
 class WordsCtrl
 
@@ -16,4 +16,4 @@ class WordsCtrl
 			"sippin some bubbly!!"
 
 
-WordsCtrls.controller("WordsCtrl", ["$scope", "Word", WordsCtrl])
+WordCtrls.controller("WordsCtrl", ["$scope", "Word", WordsCtrl])
