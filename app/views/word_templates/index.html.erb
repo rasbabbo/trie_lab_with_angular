@@ -5,7 +5,12 @@
 {{words.messedUp}}
 {{words.sayHello()}}
 
+
+
 <form ng-submit="words.addWord(newWord)">
-	<input type="text" ng-model="newWord.name">
-	<button>Basura!</button>
+	<input type="text" ng-model="newWord.name" placeholder="word">
+	<input type="text" ng-model="newWord.description" placeholder="description">
+	<button>Seguro!</button>
 </form>
+
+<div ng-repeat="name in WordFactory"></div>

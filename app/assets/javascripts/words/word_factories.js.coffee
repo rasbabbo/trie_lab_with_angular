@@ -9,6 +9,9 @@ WordFactories.factory("Word", ["$http", ($http) ->
 		,
 		create: (newWord)->
 			console.log(newWord)
-			$http.post("/words.json", {word: newWord})
+			$http.post("/words.json", $scope.newWord).success (data)->
+			$scope.newWord = {};
+			$scope.words.push(data)
 			}
+
 	])
