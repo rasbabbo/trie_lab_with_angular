@@ -1,19 +1,22 @@
 WordCtrls = angular.module("WordCtrls", [])
 
+
 class WordsCtrl
 
-		constructor: (@scope, @Word) ->
-			@messedUp = "git this snizzy werkin"
+		constructor: (@scope, @http, @Word) ->
+			this.messedUp = "git this snizzy werkin"
 			@Word.all()
-			return this
+				.success (data)=>
+					@words = data
 
-		addWord: (newWord) ->
+		addWord: (newWord)->
+
 			@Word.create(newWord)
-			.success (data) ->
-				console.log(data)
+				.success (data) =>
+					@words.push data
 
 		sayHello: () ->
 			"sippin some bubbly!!"
 
 
-WordCtrls.controller("WordsCtrl", ["$scope", "Word", WordsCtrl])
+WordCtrls.controller("WordsCtrl", ["$scope", "$http", "Word", WordsCtrl])

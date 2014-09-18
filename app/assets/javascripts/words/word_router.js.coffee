@@ -1,10 +1,10 @@
-WordRouter = angular.module("WordRouter", ["ngRoute"])
-
 class Router
 
 	constructor: (@routeProvider, @locationProvider)->
+
 		console.log("Initialized Router")
 		console.log("Setting Up")
+
 		@routeProvider.
 			when "/",
 				templateUrl: "/word_templates",
@@ -12,8 +12,10 @@ class Router
 
 		@locationProvider.html5Mode(true)
 
+WordRouter = angular.module("WordRouter", ["ngRoute"])
+
 WordRouter.config(["$routeProvider", "$locationProvider", Router])
 
-WordRouter.config ["$httpProvider", ($httpProvider) ->
-	$httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
-]
+WordRouter.config (["$httpProvider", ($httpProvider) ->
+	$httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr("content")
+])

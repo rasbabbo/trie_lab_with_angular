@@ -1,17 +1,27 @@
 WordFactories = angular.module("WordFactories", [])
 
-WordFactories.factory("Word", ["$http", ($http) ->
-	return {
-		all: () ->
-			console.log("getting something")
-			$http.get("/words.json").success (data) ->
-				console.log(data)
-		,
-		create: (newWord)->
-			console.log(newWord)
-			$http.post("/words.json", $scope.newWord).success (data)->
-			$scope.newWord = {};
-			$scope.words.push(data)
-			}
+class Word
 
-	])
+	constructor: (@http)->
+
+	all: ()->
+		@http.get("/words.json")
+
+	create: (newWord)->
+		@http.post("/words.json", {word: newWord})		
+
+
+WordFactories.service("Word", ["$http", Word])
+
+
+
+
+
+
+
+
+
+
+
+
+
